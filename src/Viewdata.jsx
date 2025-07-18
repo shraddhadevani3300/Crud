@@ -12,7 +12,7 @@ const Viewdata=()=>{
     })
     return(
         <>
-           <table style={{border:"1px solid black", textAlign:"center"}}>
+           <table border={1} cellPadding={7} >
             <tr>
                 <th>ID</th>
                 <th>Name</th>
