@@ -1,16 +1,18 @@
 import React from 'react'
 import Viewdata from "./Viewdata";
-import Inserdata from './Insertdata';
+import Insertdata from './Insertdata';
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
 
   return (
     <>
-   <h1>Hello</h1>
-  <Viewdata/> 
-  <Inserdata/>
-    </>
+    <Routes>
+      <Route path='/' element={<Viewdata/>} />
+      <Route path='insertdata' element={<Insertdata/>} />
+    </Routes>
+       </>
   )
 }
 

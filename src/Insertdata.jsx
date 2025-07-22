@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, {useRef } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Inserdata = () => {
-        
+
+        const navigate= Navigate();
     const txtname= useRef();
     const txtemail=useRef();
     const txtpassword=useRef();
@@ -22,7 +24,9 @@ const Inserdata = () => {
         a.set("password",password);
 
         axios.post("https://geton.yarainfotech.com/insert-data.php",a).then((response)=>{
-
+                    if(response.data.status=="true"){
+                        navigate("/")
+                    }
         })
 
     }
