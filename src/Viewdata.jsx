@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import Inserdata from "./Insertdata";
+import { Link, useNavigate } from "react-router-dom";
+import Insertdata from "./Insertdata";
 
 const Viewdata = () => {
+    const [isedit, setisedit] = useState(false)
+
+   const navigate= useNavigate()
 
     const [users, setusers] = useState([])
     useEffect(() => {
@@ -28,6 +31,11 @@ const Viewdata = () => {
          })
     }
 
+    const handleupdate=(user)=>{
+        navigate("/insertdata");
+
+    }
+
     return (
         <>
         <Link to="insertdata">Add Data</Link>
@@ -49,7 +57,7 @@ const Viewdata = () => {
                                     <td>{e.name}</td>
                                     <td>{e.email}</td>
                                     <td>{e.password}</td>
-                                    <td><button>Edit</button></td>
+                                    <td><button  onClick={() => handleupdate(e)}>Update</button></td>
                                     <td><button onClick={handledelete} data={e.id}>Delete</button></td>
                                 </tr>
                             </>

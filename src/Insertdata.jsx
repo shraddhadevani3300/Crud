@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const Inserdata = () => {
 
-        const navigate= Navigate();
+    const navigate= useNavigate();
     const txtname= useRef();
     const txtemail=useRef();
     const txtpassword=useRef();
