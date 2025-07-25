@@ -31,8 +31,9 @@ const Viewdata = () => {
          })
     }
 
-    const handleupdate=(user)=>{
-        navigate("/insertdata");
+    const handleupdate=(e)=>{
+        var id= e.target.getAttribute('data');
+        navigate("/insertdata"+id);
 
     }
 
@@ -57,7 +58,7 @@ const Viewdata = () => {
                                     <td>{e.name}</td>
                                     <td>{e.email}</td>
                                     <td>{e.password}</td>
-                                    <td><button  onClick={() => handleupdate(e)}>Update</button></td>
+                                    <td><button  onClick={ handleupdate} data={e.id}>Update</button></td>
                                     <td><button onClick={handledelete} data={e.id}>Delete</button></td>
                                 </tr>
                             </>
